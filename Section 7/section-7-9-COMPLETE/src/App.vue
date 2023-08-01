@@ -1,10 +1,10 @@
 <template>
   <button type="button" @click="flag = !flag">Toggle</button>
 
-  <!-- <transition name="fade" mode="out-in">
+  <transition name="fade" mode="out-in">
     <h2 v-if="flag" key="main">Hello world!</h2>
     <h2 v-else key="secondary">Another hello!</h2>
-  </transition> -->
+  </transition>
 
   <!-- <transition name="zoom" type="animation" appear>
     <h2 v-if="flag">Hello</h2>
