@@ -1,16 +1,16 @@
 <template>
   <button type="button" @click="flag = !flag">Toggle</button>
 
-  <transition name="fade" mode="out-in">
+  <!-- <transition name="fade" mode="out-in">
     <h2 v-if="flag" key="main">Hello world!</h2>
     <h2 v-else key="secondary">Another hello!</h2>
-  </transition>
+  </transition> -->
 
   <!-- <transition name="zoom" type="animation" appear>
     <h2 v-if="flag">Hello</h2>
   </transition> -->
 
-  <!-- <transition
+  <transition
     @before-enter="beforeEnter"
     @enter="enter"
     @after-enter="afterEnter"
@@ -21,7 +21,7 @@
     name="fade"
   >
     <h2 v-if="flag">Hey</h2>
-  </transition> -->
+  </transition>
 
   <button @click="addItem">Add</button>
 
@@ -62,16 +62,16 @@ export default {
     beforeEnter(el) {
       console.log("before-enter event fired", el);
     },
-    enter(el) {
+    enter(el,done) {
       console.log("enter event fired", el);
 
-      // const animation = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
-      //   duration: 1000,
-      // });
+      const animation = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
+        duration: 1000,
+      });
 
-      // animation.onfinish = () => {
-      //   done();
-      // };
+      animation.onfinish = () => {
+        done();
+      };
     },
     afterEnter(el) {
       console.log("after-enter event fired", el);
@@ -79,16 +79,16 @@ export default {
     beforeLeave(el) {
       console.log("before-leave event fired", el);
     },
-    leave(el) {
+    leave(el,done) {
       console.log("leave event fired", el);
 
-      // const animation = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
-      //   duration: 1000,
-      // });
+      const animation = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
+        duration: 1000,
+      });
 
-      // animation.onfinish = () => {
-      //   done();
-      // };
+      animation.onfinish = () => {
+        done();
+      };
     },
     afterLeave(el) {
       console.log("after-leave event fired", el);

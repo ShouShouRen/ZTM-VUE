@@ -1,0 +1,10 @@
+h1 {
+  color: #CC3244;
+  transform: rotate(-7deg);
+}
+h1 span {
+  color: blue;
+}
+h1:hover {
+  color: #661922;
+}/*# sourceMappingURL=main.css.map */
